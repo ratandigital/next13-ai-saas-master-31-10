@@ -50,7 +50,7 @@ const onSubmit = async (values: z.infer<typeof formSchema>) => {
     const response = await axios.post('/api/conversation', { messages: newMessages });
     
     // Update state with bot response
-    setMessages((current) => [...current, JSON.parse(response.data)]);
+    setMessages((current) => [...current, response.data]);
 
     form.reset();
   } catch (error: any) {
